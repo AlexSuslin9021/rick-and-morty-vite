@@ -1,0 +1,11 @@
+.header{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 80px;
+}
+ .characters{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 20px
+}

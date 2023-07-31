@@ -1,0 +1,15 @@
+
+.character {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    color: lightgray;
+    background: yellow;
+    padding:15px 15px 0 15px ;
+}
+.name{
+    text-align: center;
+}
+.image{
+    border-radius: 10px;
+    cursor: pointer;
+}
