@@ -2,6 +2,7 @@ import s from './app.module.css';
 import { Characters } from '../characters/characters.tsx';
 import { Route, Routes } from 'react-router-dom';
 import {Episodes} from "../episodes/Episodes.tsx";
+import {Locations} from "../locations/locations.tsx";
 
 function App() {
     return (
@@ -9,6 +10,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Characters />} />
                 <Route path="/episodes" element={<Episodes />} />
+                <Route path="/locations" element={<Locations />} />
                 {/* Добавьте другие маршруты, если необходимо */}
             </Routes>
         </div>
