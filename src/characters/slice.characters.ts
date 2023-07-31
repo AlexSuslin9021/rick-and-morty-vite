@@ -5,7 +5,20 @@ export const getCharacters = createAsyncThunk<ApiResponse, void>('characters/get
     const res = await charactersApi.getCharacters();
     return res.data;
 });
-const initialState= {} as ApiResponse
+export const getCharactersPage = createAsyncThunk<ApiResponse, number>('characters/getCharactersPage', async (arg:number) => {
+    const res = await charactersApi.getCharactersPage(arg);
+    return res.data;
+});
+const initialState: ApiResponse = {
+    info: {
+        count: 0,
+        pages: 0,
+        next: null,
+        prev: null,
+    },
+    results: [],
+};
+
 const slice = createSlice({
     name: 'characters',
     initialState: initialState,
@@ -13,6 +26,11 @@ const slice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(getCharacters.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
            state.results=action.payload.results
+            state.info.pages=action.payload.info.pages
+        });
+        builder.addCase(getCharactersPage.fulfilled, (state, action: PayloadAction<ApiResponse>) => {
+            state.results=action.payload.results
+            state.info.pages=action.payload.info.pages
         });
     },
 });

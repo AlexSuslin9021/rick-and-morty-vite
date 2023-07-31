@@ -4,15 +4,18 @@ import {useAppSelector} from "../common/hooks/useAppSelector.ts";
 import {useEffect} from "react";
 import s from './style.module.css'
 import {Character} from "./component/character.tsx";
+import {Paginator} from "./component/Paginator/Paginator.tsx";
 
 
 export const Characters = () => {
     const dispatch = useAppDispatch()
+
     const characters = useAppSelector(state => state.characters.results)
     console.log(characters)
     useEffect(() => {
         dispatch(getCharacters())
     }, [dispatch])
+
     return (<>
             <h3 className={s.header}>Characters</h3>
             <div className={s.characters}>
@@ -23,7 +26,9 @@ export const Characters = () => {
                     src={c.image}
                     link={c.url}
                 />)}
+
             </div>
+            <Paginator/>
         </>
     );
 };

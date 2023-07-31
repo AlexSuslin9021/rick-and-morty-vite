@@ -8,7 +8,7 @@ function App() {
     return (
         <div className={s.app}>
             <Routes>
-                <Route path="/" element={<Characters />} />
+                <Route path="/character" element={<Characters />} />
                 <Route path="/episodes" element={<Episodes />} />
                 <Route path="/locations" element={<Locations />} />
                 {/* Добавьте другие маршруты, если необходимо */}
